@@ -4717,16 +4717,16 @@ MonoBehaviour:
     price: 0
   - prefab: {fileID: 7948763708642485582, guid: 2efce58ebc9f5a1438d384f7efed9337,
       type: 3}
-    price: 200
+    price: 400
   - prefab: {fileID: 7948763708642485582, guid: 55c9583c0764f8141b4b74bc1ed1130f,
       type: 3}
-    price: 400
+    price: 800
   - prefab: {fileID: 7948763708642485582, guid: 4e2e75b0a0301744abfba31607da155e,
       type: 3}
-    price: 600
+    price: 1200
   - prefab: {fileID: 7948763708642485582, guid: 6d9cbfa8be0838041a2e5a3b7e99b3ba,
       type: 3}
-    price: 800
+    price: 1600
   game: {fileID: 1573418480}
   menu: {fileID: 1591308493}
   penItemsText:
@@ -4765,16 +4765,16 @@ MonoBehaviour:
     price: 0
   - prefab: {fileID: 9086940948697368861, guid: 754561ddb8fd20046969faad2bd01b55,
       type: 3}
-    price: 50
+    price: 200
   - prefab: {fileID: 9086940948697368861, guid: 1bb43d91fe4a8cb4bbadeede131e1de8,
       type: 3}
-    price: 100
+    price: 300
   - prefab: {fileID: 9086940948697368861, guid: cb16242da100c5748a793efc896ca56c,
       type: 3}
-    price: 150
+    price: 400
   - prefab: {fileID: 9086940948697368861, guid: 8eff8cf0129c00945b436e3e7f289e72,
       type: 3}
-    price: 200
+    price: 500
   game: {fileID: 1573418480}
   menu: {fileID: 1591308493}
   paintItemsText:
