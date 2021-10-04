@@ -59,7 +59,7 @@ public class PaintManager : MonoBehaviour
             paintSelectButtons[i].SetActive(true);
             game.DecreaseCoins(paint[i].price);
             game.UnlockPaint(i);
-            menu.UpdateCoins();
+            menu.UpdateCoins(paint[i].price);
             game.SaveGameData();
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Advertisements;
 
 public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
@@ -13,7 +14,14 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
             ? _iOsAdUnitId
             : _androidAdUnitId;
-        LoadAd();
+        if(Advertisement.isInitialized)
+        {
+            LoadAd();
+        }
+        else
+        {
+            StartCoroutine(InitialiseTheAds());
+        }
     }
 
     // Load content to the Ad Unit:
@@ -27,9 +35,12 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     // Show the loaded content in the Ad Unit: 
     public void ShowAd()
     {
-        // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
-        Advertisement.Show(_adUnitId, this);
+        if(Advertisement.isInitialized)
+        {
+            // Note that if the ad content wasn't previously loaded, this method will fail
+            Debug.Log("Showing Ad: " + _adUnitId);
+            Advertisement.Show(_adUnitId, this);
+        }
     }
 
     // Implement Load Listener and Show Listener interface methods:  
@@ -53,4 +64,11 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void OnUnityAdsShowStart(string adUnitId) { }
     public void OnUnityAdsShowClick(string adUnitId) { }
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+
+    IEnumerator InitialiseTheAds()
+    {
+        AdsInitialization.instance.InitializeAds();
+        yield return new WaitForSeconds(1f);
+        LoadAd();
+    }
 }

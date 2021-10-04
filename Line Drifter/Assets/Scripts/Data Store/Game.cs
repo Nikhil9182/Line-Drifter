@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GameData
 {
-    public int coinsAmount = 100;
+    public int coinsAmount = 50;
     public int SelectedPen = 0;
     public int SelectedCar = 0;
     public int[] levels = new int[100];
@@ -14,6 +14,7 @@ public class GameData
     public int[] pensbuy = new int[10];
     public int[] paintbuy = new int[10];
     public int[] levelStars = new int[100];
+    public bool isLoaded = true;
 }
 
 public class Game : MonoBehaviour
@@ -24,21 +25,29 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         LoadGameData();
-        gameData.hints[0] = 1; 
-        gameData.levels[0] = 1;
-        gameData.carsbuy[0] = 1;
-        gameData.pensbuy[0] = 1;
-        gameData.paintbuy[0] = 1;
-        SaveGameData();
+        if(gameData.isLoaded)
+        {
+            gameData.hints[0] = 1;
+            gameData.levels[0] = 1;
+            gameData.carsbuy[0] = 1;
+            gameData.pensbuy[0] = 1;
+            gameData.paintbuy[0] = 1;
+            SaveGameData();
+        }
     }
     private void Start()
     {
-        for (int i = 1; i < gameData.levels.Length; i++)
+        if(gameData.isLoaded)
         {
-            if(gameData.levels[i] != 1)
+            for (int i = 1; i < gameData.levels.Length; i++)
             {
-                gameData.levels[i] = 0;
+                if (gameData.levels[i] != 1)
+                {
+                    gameData.levels[i] = 0;
+                }
             }
+            gameData.isLoaded = false;
+            SaveGameData();
         }
     }
     #endregion

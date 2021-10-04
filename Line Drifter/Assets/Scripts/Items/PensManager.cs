@@ -59,7 +59,7 @@ public class PensManager : MonoBehaviour
             penSelectButtons[i].SetActive(true);
             game.DecreaseCoins(pens[i].price);
             game.UnlockPen(i);
-            menu.UpdateCoins();
+            menu.UpdateCoins(pens[i].price);
             game.SaveGameData();
         }
     }
