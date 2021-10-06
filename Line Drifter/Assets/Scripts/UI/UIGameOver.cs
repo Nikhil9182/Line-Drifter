@@ -27,6 +27,6 @@ public class UIGameOver : MonoBehaviour
             game.gameData.levelStars[i] = PlayerPrefs.GetInt("sCount");
             game.SaveGameData();
         }
-        SceneManager.LoadScene("GameEnd");
+        buttons.GameEnd();
     }
 }

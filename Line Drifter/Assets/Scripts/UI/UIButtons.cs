@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 
@@ -8,6 +9,7 @@ public class UIButtons : MonoBehaviour
 
     [SerializeField] private CarSpawner carSpawner;
     [SerializeField] private UIHandler button;
+    [SerializeField] private Animator crossfade;
 
     public void Simulate()
     {
@@ -24,13 +26,12 @@ public class UIButtons : MonoBehaviour
     public void Replay()
     {
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        StartCoroutine(LevelCrossFade(0, scene.name));
     }
 
     public void Next()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("index") + 1);
-        
+        StartCoroutine(LevelCrossFade(PlayerPrefs.GetInt("index") + 1, null));
     }
 
     public int GetCurrentIndex()
@@ -41,22 +42,27 @@ public class UIButtons : MonoBehaviour
 
     public void Home()
     {
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LevelCrossFade(0, "MainMenu"));
     }
 
     public void Shop()
     {
-        SceneManager.LoadScene("Shop");
+        StartCoroutine(LevelCrossFade(0, "Shop"));
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("index"));
+        StartCoroutine(LevelCrossFade(PlayerPrefs.GetInt("index"), null));
     }
 
     public void Level()
     {
-        SceneManager.LoadScene("Levels");
+        StartCoroutine(LevelCrossFade(0, "Levels"));
+    }
+
+    public void GameEnd()
+    {
+        SceneManager.LoadScene("GameEnd");
     }
 
     public void Hint()
@@ -71,6 +77,23 @@ public class UIButtons : MonoBehaviour
 
     public void LevelSelect(int i)
     {
-        SceneManager.LoadScene(i);
+        StartCoroutine(LevelCrossFade(i, null));
+    }
+
+    IEnumerator LevelCrossFade(int index , string name)
+    {
+        //play animation
+        crossfade.SetTrigger("Start");
+        //wait
+        yield return new WaitForSeconds(0.5f);
+        //transition to next scene
+        if(name == null)
+        {
+            SceneManager.LoadScene(index);
+        }
+        else
+        {
+            SceneManager.LoadScene(name);
+        }
     }
 }

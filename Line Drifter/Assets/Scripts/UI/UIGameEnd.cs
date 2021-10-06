@@ -179,7 +179,7 @@ public class UIGameEnd : MonoBehaviour
         }
         if(!isWon)
         {
-            if(game.gameData.levels[index + 1] == 1)
+            if(game.gameData.levels[index] == 1)
             {
                 nextLevel.interactable = true;
             }
