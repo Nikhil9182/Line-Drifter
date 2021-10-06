@@ -38,12 +38,6 @@ public class CarController : MonoBehaviour
             rearWheel.AddTorque(-carSpeed * Time.fixedDeltaTime);
             carBody.AddTorque(-carTorque * Time.fixedDeltaTime);
         }
-        else if(!toStart)
-        {
-            frontWheel.AddTorque(0f);
-            rearWheel.AddTorque(0f);
-            carBody.AddTorque(0f);
-        }
     }
     #endregion
 

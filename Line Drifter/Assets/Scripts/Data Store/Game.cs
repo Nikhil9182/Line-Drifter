@@ -49,6 +49,7 @@ public class Game : MonoBehaviour
             gameData.isLoaded = false;
             SaveGameData();
         }
+        AdsInitialization.Instance.InitializeAds();
     }
     #endregion
 
@@ -64,11 +65,11 @@ public class Game : MonoBehaviour
     }
     public void LoadGameData()
     {
-        gameData = BinarySerializer.Load<GameData>("LDgameData.ld");
+        gameData = BinarySerializer.Load<GameData>("GameData.nb");
     }
     public void SaveGameData()
     {
-        BinarySerializer.Save<GameData>(gameData, "LDgameData.ld");
+        BinarySerializer.Save<GameData>(gameData, "GameData.nb");
     }
     public void UnlockNextLevel(int index)
     {
@@ -97,6 +98,18 @@ public class Game : MonoBehaviour
     {
         gameData.paintbuy[i] = 1;
         SaveGameData();
+    }
+
+    public bool Check()
+    {
+        if(gameData.levels[9] == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     #endregion
 }

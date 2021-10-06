@@ -1,19 +1,33 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 using UnityEngine.Advertisements;
+using System.Net;
 
 public class AdsInitialization : MonoBehaviour, IUnityAdsInitializationListener
 {
-    [SerializeField] string _androidGameId;
-    [SerializeField] string _iOsGameId;
+    string _androidGameId = "4388169";
+    string _iOsGameId = "4388168";
     [SerializeField] bool _testMode = true;
     [SerializeField] bool _enablePerPlacementMode = true;
     private string _gameId;
 
-    public static AdsInitialization instance;
+    private static AdsInitialization _instance;
 
-    void Awake()
+    public static AdsInitialization Instance
     {
-        InitializeAds();
+        get { return _instance; }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        _instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -22,7 +36,7 @@ public class AdsInitialization : MonoBehaviour, IUnityAdsInitializationListener
         _gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
             ? _iOsGameId
             : _androidGameId;
-        if(!Advertisement.isInitialized)
+        if(!Advertisement.isInitialized && HasConnection())
         {
             Advertisement.Initialize(_gameId, _testMode, _enablePerPlacementMode, this);
         }
@@ -30,11 +44,27 @@ public class AdsInitialization : MonoBehaviour, IUnityAdsInitializationListener
 
     public void OnInitializationComplete()
     {
-        Debug.Log("Unity Ads initialization complete.");
+
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
-        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
+        //Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
+    }
+
+    public bool HasConnection()
+    {
+        try
+        {
+            using (var client = new WebClient())
+            using (var stream = new WebClient().OpenRead("http://www.google.com"))
+            {
+                return true;
+            }
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

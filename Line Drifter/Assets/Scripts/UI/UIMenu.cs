@@ -9,16 +9,11 @@ public class UIMenu : MonoBehaviour
 
     [SerializeField] private Game game;
     [SerializeField] private TextMeshProUGUI totalCoins;
-    [SerializeField] private GameObject gameManager;
 
     [SerializeField] private float waitTime = 0.001f;
 
     private void Start()
     {
-        if(GameObject.FindGameObjectWithTag("GameManager") == null)
-        {
-            Instantiate(gameManager);
-        }
         game.LoadGameData();
         totalCoins.text = game.gameData.coinsAmount.ToString();
     }

@@ -20,12 +20,9 @@ public class PensManager : MonoBehaviour
     [SerializeField] private GameObject[] penBuyButtons;
     [SerializeField] private GameObject[] penSelectButtons;
 
-    private GameManager manager;
-
     private void Start()
     {
         UpdatePenUI();
-        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void UpdatePenUI()
@@ -48,7 +45,7 @@ public class PensManager : MonoBehaviour
 
     public void SelectItem(int position)
     {
-        manager.selectedPencilPrefab = pens[position].prefab;
+        GameManager.Instance.selectedPencilPrefab = pens[position].prefab;
     }
 
     public void BuyItem(int i)

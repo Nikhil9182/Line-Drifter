@@ -6,19 +6,15 @@ public class CarSpawner : MonoBehaviour
 {
     [Header("Components")]
 
-    [SerializeField] private GameManager manager;
     [SerializeField] private UIGameOver gameOver;
     [HideInInspector] public CarController car;
-    [SerializeField] public float distance;
+    [Tooltip("Distance for falling of from the cliff"),SerializeField] public float distance;
 
     private GameObject spawnedCar;
-    private bool hasFalled;
+    private bool hasFalled = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         SpawnCar();
         hasFalled = false;
         car = spawnedCar.GetComponent<CarController>();
@@ -36,10 +32,10 @@ public class CarSpawner : MonoBehaviour
 
     public void SpawnCar()
     {
-        if (manager.selectedCarPrefab == null)
+        if (GameManager.Instance.selectedCarPrefab == null)
         {
-            manager.selectedCarPrefab = manager.defaultCarPrefab;
+            GameManager.Instance.selectedCarPrefab = GameManager.Instance.defaultCarPrefab;
         }
-        spawnedCar = Instantiate(manager.selectedCarPrefab, gameObject.transform);
+        spawnedCar = Instantiate(GameManager.Instance.selectedCarPrefab, gameObject.transform);
     }
 }

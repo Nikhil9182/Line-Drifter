@@ -20,12 +20,9 @@ public class PaintManager : MonoBehaviour
     [SerializeField] private GameObject[] paintBuyButtons;
     [SerializeField] private GameObject[] paintSelectButtons;
 
-    private GameManager manager;
-
     private void Start()
     {
         UpdatePaintUI();
-        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void UpdatePaintUI()
@@ -48,7 +45,7 @@ public class PaintManager : MonoBehaviour
 
     public void SelectItem(int position)
     {
-        manager.selectedLinePrefab = paint[position].prefab;
+        GameManager.Instance.selectedLinePrefab = paint[position].prefab;
     }
 
     public void BuyItem(int i)

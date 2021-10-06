@@ -14,7 +14,6 @@ public class LineDrawer : MonoBehaviour
 	[SerializeField] private RigidbodyType2D lineRigidBodyType = RigidbodyType2D.Kinematic;
 	[SerializeField] private LayerMask dontDrawOver;
 	[SerializeField] private UIHandler pointsCount;
-	[SerializeField] private GameManager manager;
 
 	private GameObject pencilContainer;
 
@@ -28,7 +27,6 @@ public class LineDrawer : MonoBehaviour
 
     private void Start()
 	{
-		manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 		SetPrefabs();
 		if (lineParent == null)
 		{
@@ -126,23 +124,23 @@ public class LineDrawer : MonoBehaviour
 
 	private void SetPrefabs()
     {
-		if (manager.selectedPencilPrefab == null)
+		if (GameManager.Instance.selectedPencilPrefab == null)
 		{
-			pencilContainer = Instantiate(manager.defaultPencilPrefab);
+			pencilContainer = Instantiate(GameManager.Instance.defaultPencilPrefab);
 			pencilContainer.SetActive(false);
 		}
 		else
 		{
-			pencilContainer = Instantiate(manager.selectedPencilPrefab);
+			pencilContainer = Instantiate(GameManager.Instance.selectedPencilPrefab);
 			pencilContainer.SetActive(false);
 		}
-		if(manager.selectedLinePrefab == null)
+		if(GameManager.Instance.selectedLinePrefab == null)
         {
-			linePrefab = manager.defaultLinePrefab;
+			linePrefab = GameManager.Instance.defaultLinePrefab;
         }
 		else
         {
-			linePrefab = manager.selectedLinePrefab;
+			linePrefab = GameManager.Instance.selectedLinePrefab;
         }
 	}
     #endregion
