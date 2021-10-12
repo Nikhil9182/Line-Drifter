@@ -18,7 +18,6 @@ public class NewLine : MonoBehaviour
     private Rigidbody2D rigidBody;
     private LineRenderer lineRenderer;
     private PolygonCollider2D polyCollider;
-    private UIHandler pointsCounter;
 
     [HideInInspector]
     public List<Vector2> points; //points list of the line
@@ -47,9 +46,7 @@ public class NewLine : MonoBehaviour
         }
         lineRenderer.material = lineMaterial;
         halfWidth = lineRenderer.endWidth / 2.0f;
-
     }
-
     #endregion
 
     #region Custom Methods

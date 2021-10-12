@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -19,6 +20,8 @@ public class PensManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] penItemsText;
     [SerializeField] private GameObject[] penBuyButtons;
     [SerializeField] private GameObject[] penSelectButtons;
+
+    private int point = 0;
 
     private void Start()
     {
@@ -45,6 +48,9 @@ public class PensManager : MonoBehaviour
 
     public void SelectItem(int position)
     {
+        penSelectButtons[point].GetComponent<Button>().interactable = true;
+        point = position;
+        penSelectButtons[position].GetComponent<Button>().interactable = false;
         GameManager.Instance.selectedPencilPrefab = pens[position].prefab;
     }
 

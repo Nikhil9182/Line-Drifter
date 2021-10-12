@@ -25,6 +25,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private Sprite brightStar;
     [SerializeField] private GameObject hintPrefab,hintUI;
 
+    public Sprite Play, Unplay;
+    public Image playButtonImage;
+
     [Header("Variables")]
 
     [SerializeField] private List<bool> starValue = new List<bool>();

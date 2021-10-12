@@ -1245,6 +1245,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCrossFade
       objectReference: {fileID: 0}
+    - target: {fileID: 7152876319208683449, guid: 58815ad61c2214c42a373d797de73c40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58815ad61c2214c42a373d797de73c40, type: 3}
 --- !u!95 &601634198 stripped
@@ -2149,6 +2154,7 @@ GameObject:
   - component: {fileID: 2112937780}
   - component: {fileID: 2112937781}
   - component: {fileID: 2112937782}
+  - component: {fileID: 2112937783}
   m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
@@ -2188,7 +2194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSpawner: {fileID: 264163205}
-  button: {fileID: 2112937781}
+  handler: {fileID: 2112937781}
   crossfade: {fileID: 601634198}
 --- !u!114 &2112937781
 MonoBehaviour:
@@ -2219,6 +2225,9 @@ MonoBehaviour:
   brightStar: {fileID: 21300000, guid: 2eb08e8bb9056a14286e546c35cf36f6, type: 3}
   hintPrefab: {fileID: 363654697}
   hintUI: {fileID: 844716691}
+  Play: {fileID: 21300000, guid: cda77aaa3a204944c8f6a69400104bfc, type: 3}
+  Unplay: {fileID: 21300000, guid: 3bc31892d3faab94eaa263430436b1b7, type: 3}
+  playButtonImage: {fileID: 6045166223771717733}
   starValue: 000000
   firstStarPoints: 100
   secondStarPoints: 50
@@ -2243,6 +2252,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: {fileID: 2112937780}
   game: {fileID: 1391189366}
+--- !u!82 &2112937783
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112937778}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1.1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &51173566575851971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2674,7 +2779,7 @@ PrefabInstance:
     - target: {fileID: 5994631427718747894, guid: 8201c07aa576bde438b5f65221419b05,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5994631427718747894, guid: 8201c07aa576bde438b5f65221419b05,
         type: 3}
@@ -2953,7 +3058,7 @@ PrefabInstance:
     - target: {fileID: 6045166222453273250, guid: ff832f9d792526440ab0686224088cac,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6045166222453273250, guid: ff832f9d792526440ab0686224088cac,
         type: 3}
@@ -3007,6 +3112,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff832f9d792526440ab0686224088cac, type: 3}
+--- !u!114 &6045166223771717733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6045166222453273251, guid: ff832f9d792526440ab0686224088cac,
+    type: 3}
+  m_PrefabInstance: {fileID: 6045166223771717732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6526005043738886038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3017,7 +3134,7 @@ PrefabInstance:
     - target: {fileID: 6526005044231714502, guid: d1e5c04d6ab96b84e9d49fdb6df3f37c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6526005044231714502, guid: d1e5c04d6ab96b84e9d49fdb6df3f37c,
         type: 3}
@@ -3450,9 +3567,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7955837374167989327, guid: 4accce05821067543a72fa35075d1b49,
         type: 3}
+      propertyPath: penClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7955837374167989327, guid: 4accce05821067543a72fa35075d1b49,
+        type: 3}
       propertyPath: pointsCount
       value: 
       objectReference: {fileID: 2112937781}
+    - target: {fileID: 7955837374167989327, guid: 4accce05821067543a72fa35075d1b49,
+        type: 3}
+      propertyPath: dontDrawOver.m_Bits
+      value: 1824
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4accce05821067543a72fa35075d1b49, type: 3}
 --- !u!1001 &8743120951893292730

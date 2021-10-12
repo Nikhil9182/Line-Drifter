@@ -27,14 +27,6 @@ public class Explosive : MonoBehaviour
 
     #region BuiltIn Methods
 
-    private void Awake()
-    {
-        blast = GetComponent<ParticleSystem>();
-        tNTSprite = GetComponent<SpriteRenderer>();
-        tNTrb2D = GetComponent<Rigidbody2D>();
-        box2D = GetComponent<BoxCollider2D>();
-    }
-
     private void Start()
     {
         countdown = delay;
@@ -55,7 +47,7 @@ public class Explosive : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
+    
     #endregion
 
     #region Custom Methods

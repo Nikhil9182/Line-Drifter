@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Rigidbody2D carBody;
     [SerializeField] private ParticleSystem carDust;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private AudioSource carAudio;
     [Space]
     [Header("Variables")]
 
@@ -25,6 +26,10 @@ public class CarController : MonoBehaviour
     #endregion
 
     #region Builtin Methods
+    private void Start()
+    {
+        carAudio.volume = 0.4f;
+    }
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(rearWheel.position, radius, whatIsGround);
@@ -38,6 +43,10 @@ public class CarController : MonoBehaviour
             rearWheel.AddTorque(-carSpeed * Time.fixedDeltaTime);
             carBody.AddTorque(-carTorque * Time.fixedDeltaTime);
         }
+        float rigidBodyMangintude = carBody.velocity.magnitude;
+        float pitch = MapValue(rigidBodyMangintude, 0f, 40f, 0f, 2f);
+
+        carAudio.pitch = pitch;
     }
     #endregion
 
@@ -48,6 +57,18 @@ public class CarController : MonoBehaviour
         {
             carDust.Play();
         }
+    }
+
+    public void ApplyBrake()
+    {
+        frontWheel.angularVelocity = 0f;
+        rearWheel.angularVelocity = 0f;
+        carBody.angularVelocity = 0f;
+    }
+
+    private float MapValue(float mainValue, float inValueMin, float inValueMax, float outValueMin, float outValueMax)
+    {
+        return (mainValue - inValueMin) * (outValueMax - outValueMin) / (inValueMax - inValueMin) + outValueMin;
     }
     #endregion
 }

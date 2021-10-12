@@ -9,7 +9,6 @@ TagManager:
   - Car
   - Box
   - GameManager
-  - Ads
   layers:
   - Default
   - TransparentFX

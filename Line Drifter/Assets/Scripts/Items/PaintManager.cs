@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -19,6 +20,8 @@ public class PaintManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] paintItemsText;
     [SerializeField] private GameObject[] paintBuyButtons;
     [SerializeField] private GameObject[] paintSelectButtons;
+
+    private int point = 0;
 
     private void Start()
     {
@@ -45,7 +48,11 @@ public class PaintManager : MonoBehaviour
 
     public void SelectItem(int position)
     {
+        paintSelectButtons[point].GetComponent<Button>().interactable = true;
+        point = position;
+        paintSelectButtons[position].GetComponent<Button>().interactable = false;
         GameManager.Instance.selectedLinePrefab = paint[position].prefab;
+
     }
 
     public void BuyItem(int i)
