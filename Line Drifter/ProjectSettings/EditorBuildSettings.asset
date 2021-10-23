@@ -16,19 +16,28 @@ EditorBuildSettings:
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Levels 1-10/Level 3.unity
-    guid: 8c23132aa831d4046aaff747c0c55988
+    guid: 190f5c3d6c34c0248a1c51280ff3e753
   - enabled: 1
     path: Assets/Scenes/Levels 1-10/Level 4.unity
-    guid: 33c0d0f51f702d7449bb1db599862dff
+    guid: 8c23132aa831d4046aaff747c0c55988
   - enabled: 1
     path: Assets/Scenes/Levels 1-10/Level 5.unity
-    guid: 512cedb88ab203b488b200f9b7304fae
+    guid: 33c0d0f51f702d7449bb1db599862dff
   - enabled: 1
     path: Assets/Scenes/Levels 1-10/Level 6.unity
-    guid: 79a88210ca3969e40b91f39ee94c5ae6
+    guid: 512cedb88ab203b488b200f9b7304fae
   - enabled: 1
     path: Assets/Scenes/Levels 1-10/Level 7.unity
+    guid: e7e4ffe67a2bdc24689bd25d521e35d6
+  - enabled: 1
+    path: Assets/Scenes/Levels 1-10/Level 8.unity
+    guid: 79a88210ca3969e40b91f39ee94c5ae6
+  - enabled: 1
+    path: Assets/Scenes/Levels 1-10/Level 9.unity
     guid: 702eae65c53fa574f80b1d84d0ffbac3
+  - enabled: 1
+    path: Assets/Scenes/Levels 1-10/Level 10.unity
+    guid: 6d7b23a2a38818d41ae6d529b880aa9a
   - enabled: 1
     path: Assets/Scenes/Menu/Shop.unity
     guid: 1d388640376558c4db29539b97cc8be2

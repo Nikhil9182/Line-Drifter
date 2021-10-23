@@ -13,12 +13,13 @@ public class Explosive : MonoBehaviour
     [SerializeField] private Rigidbody2D tNTrb2D;
     [SerializeField] private BoxCollider2D box2D;
     [SerializeField] private LayerMask blastingMask;
+    [SerializeField] private AudioSource explosionClip;
 
     [Header("Variables")]
 
-    [SerializeField] private float delay = 3f;
-    [SerializeField] private float radius = 5f;
-    [SerializeField] private float explosionForce = 100f;
+    [SerializeField] private float radius = 1f;
+    [SerializeField] private float explosionForce = 1000f;
+    [Range(1,5),SerializeField] private int multiplier;
 
     private bool hasExploded = false;
     private float countdown;
@@ -26,40 +27,22 @@ public class Explosive : MonoBehaviour
     #endregion
 
     #region BuiltIn Methods
-
-    private void Start()
-    {
-        countdown = delay;
-    }
-
-    private void Update()
-    {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f && !hasExploded)
-        {
-            Explode();
-            hasExploded = true;
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Explode();
+    }
     #endregion
 
     #region Custom Methods
 
     public void Explode()
     {
-        blast.Play();
-        tNTSprite.enabled = false;
-        tNTrb2D.bodyType = RigidbodyType2D.Kinematic;
-        box2D.enabled = false;
-        Destroy(gameObject, blast.main.duration * 2);
-
         Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, radius , blastingMask);
 
         foreach (Collider2D nearbyGameobject in col)
@@ -68,10 +51,16 @@ public class Explosive : MonoBehaviour
 
             if((rb2d != null))
             {
+                tNTrb2D.bodyType = RigidbodyType2D.Kinematic;
+                blast.Play();
+                //explosionClip.Play();
+                tNTSprite.enabled = false;
+                box2D.enabled = false;
+                Destroy(gameObject, blast.main.duration * 2);
                 Vector2 dir = rb2d.transform.position - transform.position;
                 if (Physics2D.Raycast(transform.position, dir, blastingMask))
                 {
-                    rb2d.AddForce(dir * explosionForce);
+                    rb2d.AddForce(dir* multiplier * explosionForce);
                 }
             }
         }
