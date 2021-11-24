@@ -17,17 +17,32 @@ public class PaintManager : MonoBehaviour
 
     [SerializeField] private Game game;
     [SerializeField] private UIMenu menu;
+    [SerializeField] private GameObject[] paintObjects;
     [SerializeField] private TextMeshProUGUI[] paintItemsText;
     [SerializeField] private GameObject[] paintBuyButtons;
     [SerializeField] private GameObject[] paintSelectButtons;
 
     private int point = 0;
 
+    private void Awake()
+    {
+        LoadPaintObjects();
+    }
+
     private void Start()
     {
         UpdatePaintUI();
     }
 
+    private void LoadPaintObjects()
+    {
+        for (int i = 0; i < paintObjects.Length; i++)
+        {
+            paintItemsText[i] = paintObjects[i].transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            paintBuyButtons[i] = this.paintObjects[i].transform.GetChild(1).gameObject;
+            paintSelectButtons[i] = this.paintObjects[i].transform.GetChild(2).gameObject;
+        }
+    }
     private void UpdatePaintUI()
     {
         for (int i = 0; i < paint.Length; i++)

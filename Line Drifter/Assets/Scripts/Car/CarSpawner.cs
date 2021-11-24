@@ -22,7 +22,7 @@ public class CarSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(spawnedCar.transform.position.y <= -distance && !hasFalled)
+        if((spawnedCar.transform.position.y <= -distance || spawnedCar.transform.position.y >= 2*distance) && !hasFalled)
         {
             hasFalled = true;
             gameOver.Save(0);

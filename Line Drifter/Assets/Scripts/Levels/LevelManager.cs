@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -15,14 +13,28 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Sprite[] starsImage;
     [SerializeField] Sprite lockedLevel, unlockedLevel;
 
+    private void Awake()
+    {
+        AssignValues();
+    }
+
     private void Start()
     {
         UpdateUI();
     }
 
+    private void AssignValues()
+    {
+        for (int i = 0; i < levelButton.Length; i++)
+        {
+            textObjects[i] = levelButton[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            levelStarsIamge[i] = this.levelButton[i].transform.GetChild(1).gameObject;
+        }
+    }
+
     private void UpdateUI()
     {
-        for (int i = 0; i < textObjects.Length; i++)
+        for (int i = 0; i < levelButton.Length; i++)
         {
             if(game.gameData.levels[i] == 1)
             {

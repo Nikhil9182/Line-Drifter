@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 8645694444150745044}
   - component: {fileID: 8645694444150745045}
   - component: {fileID: 2088646246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TNT
-  m_TagString: Untagged
+  m_TagString: TNT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8645694444150745042}
-  m_LocalRotation: {x: 0, y: 0, z: 0.3004062, w: 0.9538114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.6, y: 11.4, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.964}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8645694444150745041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.06, y: 1.98}
+  m_Size: {x: 4.1, y: 3.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,14 +104,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.06, y: 1.98}
-    newSize: {x: 2.06, y: 1.98}
+    oldSize: {x: 4.1, y: 3.94}
+    newSize: {x: 4.1, y: 3.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.9}
+  m_Size: {x: 4.1001625, y: 3.94}
   m_EdgeRadius: 0
 --- !u!50 &8645694444150745047
 Rigidbody2D:
@@ -4937,7 +4937,10 @@ MonoBehaviour:
   blastingMask:
     serializedVersion: 2
     m_Bits: 1536
+  nearbyTNTMask:
+    serializedVersion: 2
+    m_Bits: 4096
   explosionClip: {fileID: 0}
-  radius: 2.2
-  explosionForce: 300
-  multiplier: 0
+  directBlastRadius: 3.5
+  explosionForce: 1500
+  multiplier: 2

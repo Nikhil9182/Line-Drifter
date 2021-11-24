@@ -17,15 +17,31 @@ public class PensManager : MonoBehaviour
 
     [SerializeField] private Game game;
     [SerializeField] private UIMenu menu;
+    [SerializeField] private GameObject[] pensObjects;
     [SerializeField] private TextMeshProUGUI[] penItemsText;
     [SerializeField] private GameObject[] penBuyButtons;
     [SerializeField] private GameObject[] penSelectButtons;
 
     private int point = 0;
 
+    private void Awake()
+    {
+        LoadPenObjects();
+    }
+
     private void Start()
     {
         UpdatePenUI();
+    }
+
+    private void LoadPenObjects()
+    {
+        for (int i = 0; i < pensObjects.Length; i++)
+        {
+            penItemsText[i] = pensObjects[i].transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            penBuyButtons[i] = this.pensObjects[i].transform.GetChild(1).gameObject;
+            penSelectButtons[i] = this.pensObjects[i].transform.GetChild(2).gameObject;
+        }
     }
 
     private void UpdatePenUI()
@@ -45,7 +61,7 @@ public class PensManager : MonoBehaviour
             }
         }
     }
-
+    
     public void SelectItem(int position)
     {
         penSelectButtons[point].GetComponent<Button>().interactable = true;
