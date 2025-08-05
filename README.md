@@ -63,7 +63,7 @@ It features intuitive physics-based gameplay, progression across multiple levels
 
 ## 🙌 Credits
 
-- Developed by [Nikhil Bansal](https://github.com/Nikhil9182)
+- Developed by [Nikhil Bansal]([https://github.com/Nikhil9182](https://www.linkedin.com/in/nikhilbansal30))
 - Inspired by puzzle classics like *Happy Glass*
 
 ---
