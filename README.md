@@ -14,7 +14,7 @@ Developed by **Nikhil9182**. :contentReference[oaicite:6]{index=6}
 *(Insert screenshot or GIF above before video)*
 
 <!-- If your gameplay demo is available on YouTube: -->
-[![Watch the game in action]]([https://www.youtube.com/watch?v=VIDEO_ID](https://youtu.be/2KP7aNE14-w))
+[![Watch Gameplay](https://img.youtube.com/vi/2KP7aNE14/0.jpg)](https://www.youtube.com/watch?v=2KP7aNE14)
 
 ---
 
