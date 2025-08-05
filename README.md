@@ -9,11 +9,11 @@ It features intuitive physics-based gameplay, progression across multiple levels
 
 ### 🧩 Gameplay
 
-![Gameplay](Screenshot/Screenshot_2.png)
+![Gameplay](Screenshots/Screenshot_2.png)
 
 ### 🛒 Shop Screen
 
-![Shop](Screenshot/Screenshot_1.png)
+![Shop](Screenshots/Screenshot_1.png)
 
 ---
 
