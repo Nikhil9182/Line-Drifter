@@ -5,13 +5,15 @@ Developed by **Nikhil9182**. :contentReference[oaicite:6]{index=6}
 
 ---
 
-## 🕹️ Play & Demo
+## 📸 Screenshots
 
-> 🎮 *Add your demo video below when uploaded to YouTube or directly in the repo.*
+### 🧩 Gameplay
 
-### 🎥 Gameplay Trailer or Demo
-![Gameplay Screenshot](path/to/screenshot1.png)
-*(Insert screenshot or GIF above before video)*
+![Gameplay](Screenshot/Screenshot_2.png)
+
+### 🛒 Shop Screen
+
+![Shop](Screenshot/Screenshot_1.png)
 
 <!-- If your gameplay demo is available on YouTube: -->
 [![Watch Gameplay](https://img.youtube.com/vi/2KP7aNE14-w/0.jpg)](https://www.youtube.com/watch?v=2KP7aNE14-w)
